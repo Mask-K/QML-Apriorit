@@ -12,12 +12,18 @@ Column{
         switch(event){
         case 0:
             list.visible = true;
+            pathView.visible = false;
+            lazy.visible = false;
             break;
         case 1:
             list.visible = false;
+            pathView.visible = false;
+            lazy.visible = true;
             break;
         case 2:
             list.visible = false;
+            pathView.visible = true;
+            lazy.visible = false
             break
 
         }
@@ -27,13 +33,13 @@ Column{
 
     Connections{
         target: myModel
-        function view(){
-            console.log("xuietaaaaaaaaaaaaaaaa");
+        function onView(){
             for(var i = 0; i < myModel.images.length; ++i){
                 lmodel.append({path: myModel.images[i]});
             }
         }
     }
+
 
 
 
@@ -62,7 +68,7 @@ Column{
             Button {
                 id: button
                 Layout.alignment: Qt.AlignLeft | Qt.AlignTop
-                //anchors.top: parent.top
+
                 text: "Select path for images!"
 
 
@@ -154,33 +160,45 @@ Column{
                 }
             }
         }
+        Component{
+                id: delegate2
+                Column {
+                    id: wrapper
+                    opacity: PathView.isCurrentItem ? 1 : 0.3
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: 100; height: 100
+                        smooth: true
+                        source: path
+                        MouseArea{
+                            anchors.fill: parent
+                            property bool flag: false
+                            acceptedButtons: Qt.AllButtons
+                            onClicked:{
+
+                                if(!flag){
+                                    parent.width = parent.width*3;
+                                    parent.height = parent.height*1.5;
+                                    flag = true
+                                }
+                                else{
+                                    parent.width = 100;
+                                    parent.height = 100;
+                                    flag = false
+                                }
+
+
+                            }
+                        }
+                    }
+
+                }
+            }
 
 
         ListModel{
             id: lmodel
-//            ListElement{
-//                path: "file:///E:/imgs/Cat03.jpg"
-//            }
-
-//            ListElement{
-//                path: "file:///E:/imgs/ScreenShot_1.png"
-//            }
-
-//            ListElement{
-//                path: "file:///E:/imgs/svg.svg"
-//            }
-
-//            ListElement{
-//                path: "file:///E:/imgs/tinypng-magento-image_1.jpg"
-//            }
-//            ListElement{
-//                path: "file:///E:/imgs/ded.jpeg"
-//            }
         }
-
-
-
-
         ListView{
             visible: false
             model: lmodel
@@ -190,15 +208,45 @@ Column{
             delegate: delegate
             ScrollBar.vertical: ScrollBar{}
         }
+        PathView {
+                id: pathView
+                visible: false
+                anchors{
+                    fill: parent
+                    horizontalCenter: parent.horizontalCenter
+                }
+                Layout.alignment: Qt.AlignHCenter
+                model: lmodel
+                delegate: delegate2
+                path: Path {
+                    startX: parent.width/2; startY: parent.height/2
+                    PathQuad { x: parent.width/2; y: parent.height/2 - 150; controlX: parent.width/2 + 200; controlY: parent.height/2 - 50 } // y - 150; x + 200, y - 50
+                    PathQuad { x: parent.width/2; y: parent.height/2; controlX: parent.width/2 - 175; controlY: parent.height/2 - 50 } // nothing; x - 175, y - 50
+                }
+            }
 
+        Column{
+            id: lazy
+            visible: false
+            anchors.fill: parent
+            Image {
+                height: 300
+                width: 300
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: "tiredCat.jpg"
 
-
+            }
+            Label{
+                text: "Haven't done this task =`("
+                font.pixelSize: 20
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+        }
 
 
     }
 
 }
-
 
 
 

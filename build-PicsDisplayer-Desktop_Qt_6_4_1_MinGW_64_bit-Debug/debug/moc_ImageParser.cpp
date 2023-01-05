@@ -31,9 +31,9 @@ struct qt_meta_stringdata_ImageParser_t {
     char stringdata1[14];
     char stringdata2[1];
     char stringdata3[5];
-    char stringdata4[7];
+    char stringdata4[5];
     char stringdata5[12];
-    char stringdata6[5];
+    char stringdata6[7];
     char stringdata7[7];
 };
 #define QT_MOC_LITERAL(ofs, len) \
@@ -44,18 +44,18 @@ Q_CONSTINIT static const qt_meta_stringdata_ImageParser_t qt_meta_stringdata_Ima
         QT_MOC_LITERAL(12, 13),  // "onParseImages"
         QT_MOC_LITERAL(26, 0),  // ""
         QT_MOC_LITERAL(27, 4),  // "path"
-        QT_MOC_LITERAL(32, 6),  // "onView"
-        QT_MOC_LITERAL(39, 11),  // "parseImages"
-        QT_MOC_LITERAL(51, 4),  // "view"
+        QT_MOC_LITERAL(32, 4),  // "view"
+        QT_MOC_LITERAL(37, 11),  // "parseImages"
+        QT_MOC_LITERAL(49, 6),  // "onView"
         QT_MOC_LITERAL(56, 6)   // "images"
     },
     "ImageParser",
     "onParseImages",
     "",
     "path",
-    "onView",
-    "parseImages",
     "view",
+    "parseImages",
+    "onView",
     "images"
 };
 #undef QT_MOC_LITERAL
@@ -110,12 +110,12 @@ Q_CONSTINIT const QMetaObject ImageParser::staticMetaObject = { {
         // method 'onParseImages'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QUrl &, std::false_type>,
-        // method 'onView'
+        // method 'view'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'parseImages'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QUrl &, std::false_type>,
-        // method 'view'
+        // method 'onView'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -128,9 +128,9 @@ void ImageParser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         (void)_t;
         switch (_id) {
         case 0: _t->onParseImages((*reinterpret_cast< std::add_pointer_t<QUrl>>(_a[1]))); break;
-        case 1: _t->onView(); break;
+        case 1: _t->view(); break;
         case 2: _t->parseImages((*reinterpret_cast< std::add_pointer_t<QUrl>>(_a[1]))); break;
-        case 3: _t->view(); break;
+        case 3: _t->onView(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -144,7 +144,7 @@ void ImageParser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         }
         {
             using _t = void (ImageParser::*)();
-            if (_t _q_method = &ImageParser::onView; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &ImageParser::view; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
@@ -165,7 +165,7 @@ void ImageParser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0:
             if (_t->images != *reinterpret_cast< QStringList*>(_v)) {
                 _t->images = *reinterpret_cast< QStringList*>(_v);
-                Q_EMIT _t->onView();
+                Q_EMIT _t->view();
             }
             break;
         default: break;
@@ -218,7 +218,7 @@ void ImageParser::onParseImages(const QUrl & _t1)
 }
 
 // SIGNAL 1
-void ImageParser::onView()
+void ImageParser::view()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }

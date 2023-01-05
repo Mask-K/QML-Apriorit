@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
 
     QQmlApplicationEngine engine;
-    ImageParser* model = new ImageParser;
+    ImageParser model;
 
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
 
-    static_cast<QObject*>(model)->setProperty("images", QStringList{});
-    engine.rootContext()->setContextProperty("myModel", model);
+    model.setProperty("images", QStringList{});
+    engine.rootContext()->setContextProperty("myModel", &model);
     engine.load(url);
 
     return app.exec();

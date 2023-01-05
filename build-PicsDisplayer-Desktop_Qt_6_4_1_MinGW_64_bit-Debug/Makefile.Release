@@ -104,6 +104,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_qml.cpp
 release/qrc_qml.cpp: ../PicsDisplayer/qml.qrc \
 		../../../Qt/6.4.1/mingw_64/bin/rcc.exe \
+		../PicsDisplayer/tiredCat.jpg \
 		../PicsDisplayer/MainForm.qml \
 		../PicsDisplayer/main.qml
 	D:\Qt\6.4.1\mingw_64\bin\rcc.exe -name qml --no-zstd ..\PicsDisplayer\qml.qrc -o release\qrc_qml.cpp
@@ -213,13 +214,6 @@ release/moc_ImageParser.cpp: ../PicsDisplayer/ImageParser.h \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/qvarlengtharray.h \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/QUrl \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/QStringList \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/QVariantList \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qjsonarray.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qjsonvalue.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qcborvalue.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qcborcommon.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qregularexpression.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/quuid.h \
 		release/moc_predefs.h \
 		../../../Qt/6.4.1/mingw_64/bin/moc.exe
 	D:\Qt\6.4.1\mingw_64\bin\moc.exe $(DEFINES) --include D:/Course/Homework10/build-PicsDisplayer-Desktop_Qt_6_4_1_MinGW_64_bit-Debug/release/moc_predefs.h -ID:/Qt/6.4.1/mingw_64/mkspecs/win32-g++ -ID:/Course/Homework10/PicsDisplayer -ID:/Qt/6.4.1/mingw_64/include -ID:/Qt/6.4.1/mingw_64/include/QtQuick -ID:/Qt/6.4.1/mingw_64/include/QtOpenGL -ID:/Qt/6.4.1/mingw_64/include/QtGui -ID:/Qt/6.4.1/mingw_64/include/QtQmlModels -ID:/Qt/6.4.1/mingw_64/include/QtQml -ID:/Qt/6.4.1/mingw_64/include/QtQmlIntegration -ID:/Qt/6.4.1/mingw_64/include/QtNetwork -ID:/Qt/6.4.1/mingw_64/include/QtCore -I. -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -ID:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -ID:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\PicsDisplayer\ImageParser.h -o release\moc_ImageParser.cpp
@@ -335,14 +329,7 @@ release/ImageParser.o: ../PicsDisplayer/ImageParser.cpp ../PicsDisplayer/ImagePa
 		../../../Qt/6.4.1/mingw_64/include/QtCore/qhash.h \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/qvarlengtharray.h \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/QUrl \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/QStringList \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/QVariantList \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qjsonarray.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qjsonvalue.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qcborvalue.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qcborcommon.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qregularexpression.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/quuid.h
+		../../../Qt/6.4.1/mingw_64/include/QtCore/QStringList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\ImageParser.o ..\PicsDisplayer\ImageParser.cpp
 
 release/main.o: ../PicsDisplayer/main.cpp ../../../Qt/6.4.1/mingw_64/include/QtGui/QGuiApplication \
@@ -500,14 +487,7 @@ release/main.o: ../PicsDisplayer/main.cpp ../../../Qt/6.4.1/mingw_64/include/QtG
 		../../../Qt/6.4.1/mingw_64/include/QtCore/qdatetime.h \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/qcalendar.h \
 		../../../Qt/6.4.1/mingw_64/include/QtCore/QUrl \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/QStringList \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/QVariantList \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qjsonarray.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qjsonvalue.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qcborvalue.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qcborcommon.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/qregularexpression.h \
-		../../../Qt/6.4.1/mingw_64/include/QtCore/quuid.h
+		../../../Qt/6.4.1/mingw_64/include/QtCore/QStringList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\PicsDisplayer\main.cpp
 
 release/qrc_qml.o: release/qrc_qml.cpp 
