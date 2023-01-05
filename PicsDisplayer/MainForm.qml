@@ -34,6 +34,7 @@ Column{
     Connections{
         target: myModel
         function onView(){
+            lmodel.clear()
             for(var i = 0; i < myModel.images.length; ++i){
                 lmodel.append({path: myModel.images[i]});
             }

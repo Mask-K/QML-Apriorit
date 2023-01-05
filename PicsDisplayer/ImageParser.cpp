@@ -9,7 +9,7 @@ ImageParser::ImageParser(){
 
 void ImageParser::parseImages(const QUrl &path){
     QDir dir(path.toLocalFile());
-
+    images.clear();
     images = dir.entryList(QStringList() << "*.jpg" << "*.JPG" << "*.png" << "*.PNG" << "*.bmp" << "*.BMP"
                            << "*.gif" << "*.GIF" << "*.jpeg" << "*.JPEG" << "*.svg" << "*.SVG", QDir::Files);
     for(QString& img : images) {
